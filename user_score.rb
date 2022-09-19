@@ -54,34 +54,6 @@ class UserScore
 					event_score["CreateEvent"] = group_by_events.find{|k, v| k == "CreateEvent"}.last * 2 if events.uniq.include?("CreateEvent")
 					event_score["PullRequestEvent"] = group_by_events.find{|k, v| k == "PullRequestEvent"}.last * 2 if events.uniq.include?("PullRequestEvent")
 					event_score["DeleteEvent"] = group_by_events.find{|k, v| k == "DeleteEvent"}.last * -1 if events.uniq.include?("DeleteEvent")
-					# group_by_events.each do |k, v|
-					# 	if k == "IssuesEvent"
-					# 		h[k] = v * 7
-					# 	elsif k == "IssueCommentEvent"
-					# 		h[k] = v * 6
-					# 	elsif k == "PushEvent"
-					# 		h[k] = v * 5
-					# 	elsif k == "PullRequestReviewCommentEvent"
-					# 		h[k] = v * 4
-					# 	elsif k == "WatchEvent"
-					# 		h[k] = v * 3
-					# 	elsif k == "CreateEvent"
-					# 		h[k] = v * 2
-					# 	elsif k == "PullRequestEvent"
-					# 		h[k] = v * 2
-					# 	elsif k == "DeleteEvent"
-					# 		h[k] = v * -1
-					# 	end
-						
-					# 	k == "IssuesEvent" ? event_score[k] = v * 7 : 
-					# 	k == "IssueCommentEvent" ? event_score[k] = v * 6 : 
-					# 	k == "PushEvent" ? event_score[k] = v * 5 : 
-					# 	k == "PullRequestReviewCommentEvent" ? event_score[k] = v * 4 :
-					# 	k == "WatchEvent" ? event_score[k] = v * 3 :
-					# 	k == "CreateEvent" ? event_score[k] = v * 2 :
-					# 	k == "PullRequestEvent" ? event_score[k] = v * 2 :
-					# 	k == "DeleteEvent" ? event_score[k] = v * -1 : event_score[k] = v
-					# end
 
 					total_score = {total_score: event_score.values.inject(:+)}
 					puts event_score
